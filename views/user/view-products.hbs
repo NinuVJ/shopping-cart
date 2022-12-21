@@ -1,0 +1,59 @@
+
+    <section>
+        <div class="container mt-5">
+
+        <div class="row">
+            {{#each products}}
+            <div class="col-md-3">
+                <div class="card d-flex justify-content-center" 
+                style="width: 15rem; height: 30rem; padding: 20px;">
+                    <img class="rounded mx-auto d-block card-img-top"
+                     src="/product-images/{{this._id}}.jpg" 
+                     alt="Card image cap"
+                     style="height: 10rpm;width: 10rem;">
+                    <div class="card-body">
+                    <h5 class="card-title">{{this.Name}}</h5>
+                    <h6 class="card-subtitle">{{this.Author}}</h6>
+                    <p class="card-text">₹{{this.Price}}</p>
+                    <button onclick="addToCart('{{this._id}}')" 
+                    class="btn btn-primary">Add To Cart</button>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+            
+        </div>
+        </div>
+    </section>
+
+    <script>
+        function changeQuantity(cartId,proId,userId,count){
+        let quantity=parseInt(document.getElementById(proId).innerHTML)
+        count=parseInt(count)
+        console.log(userId)
+        $.ajax({
+            url:'/change-product-quantity',
+            data:{
+                user:userId,
+                cart:cartId,
+                product:proId,
+                count:count,
+                quantity:quantity
+            },
+            method:'post',
+            success:(response)=>{
+                if(response.removeProduct){
+                    alert("Product removed from cart")
+                    location.reload()
+
+                }else{
+                    console.log(response)
+                    document.getElementById(proId).innerHTML=quantity+count
+                    document.getElementById('total').innerHTML=response.total
+                    
+                }     
+            }
+        })
+    }
+        
+    </script>
