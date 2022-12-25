@@ -1,5 +1,8 @@
 const { response } = require('express');
 var express = require('express');
+const Express = require('express');
+const app = new Express();
+app.use(Express.static(__dirname+'/public'));
 var router = express.Router();
 var productHelpers=require('../helpers/product-helpers')
 

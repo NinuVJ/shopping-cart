@@ -1,22 +1,36 @@
 
-    <section>
+<section><div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="/images/book44.jpg" style="height: 350px;" class="d-block w-100" alt="Card image cap">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/book2.jpg" style="height: 350px;" class="d-block w-100" alt="Card image cap">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/book3.jpg" style="height: 350px;" class="d-block w-100" alt="Card image cap">
+    </div>
+  </div>
+</div>
+</section>
+<section class="bg-dark">
         <div class="container mt-5">
 
-        <div class="row">
+        <div class="row ">
             {{#each products}}
-            <div class="col-md-3">
+            <div class="col-md-2 m-4">
                 <div class="card d-flex justify-content-center" 
-                style="width: 15rem; height: 30rem; padding: 20px;">
-                    <img class="rounded mx-auto d-block card-img-top"
+                style="width: 12rem; height: 25rem; padding: 10px;">
+                    <img class="rounded mx-auto d-block card-img-top p-3"
                      src="/product-images/{{this._id}}.jpg" 
                      alt="Card image cap"
-                     style="height: 10rpm;width: 10rem;">
+                     style="height: 15rem;width: 10rem;">
                     <div class="card-body">
                     <h5 class="card-title">{{this.Name}}</h5>
                     <h6 class="card-subtitle">{{this.Author}}</h6>
                     <p class="card-text">₹{{this.Price}}</p>
                     <button onclick="addToCart('{{this._id}}')" 
-                    class="btn btn-primary">Add To Cart</button>
+                    class="btn btn-success">Add To Cart</button>
                     </div>
                 </div>
             </div>
