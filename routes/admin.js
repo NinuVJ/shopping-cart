@@ -14,8 +14,7 @@ router.get('/', function(req, res, next) {
 
   })
   
- 
-});
+ });
 
 router.get('/add-products',function(req,res){
   res.render('admin/add-products')
@@ -61,5 +60,20 @@ router.post('/edit-product/:id',(req,res)=>{
   })
 
 })
+router.get('/users', function(req, res, next) {
+  productHelpers.getAllUsers().then((users)=>{
+    res.render('admin/view-users',{admin:true,users});
+
+  })
+  
+ });
+
+ router.get('/orders', function(req, res, next) {
+  productHelpers.getAllOrders().then((orders)=>{
+    res.render('admin/all-orders',{admin:true,orders});
+
+  })
+  
+ });
 
 module.exports = router;

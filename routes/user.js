@@ -13,6 +13,8 @@ const verifyLogin=(req,res,next)=>{
   }
 }
 
+
+
 /* GET home page. */
 router.get('/', async function (req, res, next) {
 
@@ -28,7 +30,77 @@ router.get('/', async function (req, res, next) {
     res.render('user/view-products', { products, user,cartCount });
 
   })
-});
+})
+router.get('/biography',async(req,res)=>{
+  let user = req.session.user
+  
+  let cartCount=null
+  if(req.session.user){
+    cartCount=await userHelpers.getCartCount(req.session.user._id) 
+  }
+ 
+  productHelpers.getCategoryProducts().then((products) => {
+
+    res.render('user/view-products', { products, user,cartCount });
+
+  })
+})
+router.get('/classic',async(req,res)=>{
+  let user = req.session.user
+  
+  let cartCount=null
+  if(req.session.user){
+    cartCount=await userHelpers.getCartCount(req.session.user._id) 
+  }
+ 
+  productHelpers.getCategoryProducts().then((products) => {
+
+    res.render('user/view-products', { products, user,cartCount });
+
+  })
+})
+router.get('/fiction',async(req,res)=>{
+  let user = req.session.user
+  
+  let cartCount=null
+  if(req.session.user){
+    cartCount=await userHelpers.getCartCount(req.session.user._id) 
+  }
+ 
+  productHelpers.getCategoryProducts().then((products) => {
+
+    res.render('user/view-products', { products, user,cartCount });
+
+  })
+})
+router.get('/horror',async(req,res)=>{
+  let user = req.session.user
+  
+  let cartCount=null
+  if(req.session.user){
+    cartCount=await userHelpers.getCartCount(req.session.user._id) 
+  }
+ 
+  productHelpers.getCategoryProducts().then((products) => {
+
+    res.render('user/view-products', { products, user,cartCount });
+
+  })
+})
+router.get('/fantasy',async(req,res)=>{
+  let user = req.session.user
+  
+  let cartCount=null
+  if(req.session.user){
+    cartCount=await userHelpers.getCartCount(req.session.user._id) 
+  }
+ 
+  productHelpers.getCategoryProducts().then((products) => {
+
+    res.render('user/view-products', { products, user,cartCount });
+
+  })
+})
 router.get('/login', (req, res) => {
   if (req.session.user) {
     res.redirect('/')

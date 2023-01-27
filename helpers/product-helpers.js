@@ -23,6 +23,30 @@ module.exports={
             resolve(products)
         })
     },
+    getAllUsers:()=>{
+        return new Promise(async(resolve,reject)=>{
+                    
+
+            let users=await db.get().collection(collection.USER_COLLECTION).find().toArray()
+            resolve(users)
+        })
+    },
+    getAllOrders:()=>{
+        return new Promise(async(resolve,reject)=>{
+                    
+
+            let orders=await db.get().collection(collection.ORDER_COLLECTION).find().toArray()
+            resolve(orders)
+        })
+    },
+
+    getCategoryProducts:()=>{
+        return new Promise(async(resolve,reject)=>{
+                    
+            let products=await db.get().collection(collection.PRODUCT_COLLECTION).find({'Category':'classic'}).toArray()
+            resolve(products)
+        })
+    },
     deleteProduct:(proId)=>{
         return new Promise((resolve,reject)=>{
             db.get().collection(collection.PRODUCT_COLLECTION).deleteOne({_id:ObjectId(proId)}).then((response)=>{

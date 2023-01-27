@@ -1,11 +1,20 @@
-<section>
-    <div class="container mt-4"></div>
+<section >
+    <div class="container"></div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-6 mt-4">
             <h2 class="text-center">Add Products</h2>
             <form action="/admin/add-products" method="POST" enctype="multipart/form-data">
                 <label for="">Name</label>
                 <input type="text" name="Name" class="form-control">
+
+                <label for="">Category</label>
+                <select name="Category" class="form-control">
+                <option value="biography">Biography</option>
+                <option value="classic">Classic</option>
+                <option value="fiction">Fiction</option>
+                <option value="horror">Horror</option>
+                <option value="fantasy">Fantasy</option>
+                </select>
 
                 <label for="">Author</label>
                 <input type="text" name="Author" class="form-control">
